@@ -17,7 +17,7 @@ const FavoritesPage = () => {
   return (
     <>
       <h2 className="font-bold">Your Favorite Movies</h2>
-      <div className="flex place-content-center h-screen">
+      <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row p-2 sm:max-h-full">
         {favorites.length === 0 ? (
           <p className="p-10 m-10 font-serif text-sky-500 text-2xl">
             No favorite movies added here.

@@ -8,6 +8,9 @@ export default function UserContextProvider({ children }) {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [isError, setError] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+  console.log(setPostsPerPage);
 
   const handleSearch = async () => {
     if (!query) return;
@@ -21,6 +24,10 @@ export default function UserContextProvider({ children }) {
       setError("Failed to fetch movies");
     }
   };
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const currentPosts = movies.slice(firstPostIndex, lastPostIndex);
+  const totalPosts = currentPosts.length;
 
   return (
     <userContext.Provider
@@ -31,6 +38,11 @@ export default function UserContextProvider({ children }) {
         movies,
         isError,
         setError,
+        postsPerPage,
+        currentPosts,
+        setCurrentPage,
+        currentPage,
+        totalPosts,
       }}
     >
       {children}

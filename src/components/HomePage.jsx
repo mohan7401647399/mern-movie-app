@@ -5,10 +5,20 @@ import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../components/Logout";
 import { Button } from "@mui/material";
 import Card from "./Card";
+import Pagination from "./Pagination";
 
 const HomePage = () => {
-  const { handleSearch, query, setQuery, movies, isError } =
-    useContext(userContext);
+  const {
+    handleSearch,
+    query,
+    setQuery,
+    currentPosts: movies,
+    isError,
+    postsPerPage,
+    setCurrentPage,
+    currentPage,
+    totalPosts,
+  } = useContext(userContext);
 
   const { isLoading, error } = useAuth0();
 
@@ -43,7 +53,7 @@ const HomePage = () => {
 
       {isError && <p>{isError}</p>}
 
-      <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row h-max">
+      <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row bg-black">
         {movies.map((movie) => (
           <Card>
             <div key={movie.imdbID}>
@@ -57,6 +67,12 @@ const HomePage = () => {
           </Card>
         ))}
       </div>
+      <Pagination
+        totalPosts={totalPosts}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      />
     </>
   );
 };

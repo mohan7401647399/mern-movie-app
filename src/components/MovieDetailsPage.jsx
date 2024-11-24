@@ -53,9 +53,6 @@ const MovieDetailsPage = () => {
               <strong>Year Of Release</strong> : {movie.Released}
             </h2>
             <p>
-              <strong>Story</strong>: {movie.Plot}
-            </p>
-            <p>
               <strong>Genre:</strong> {movie.Genre}
             </p>
             <p className="mb-5">
