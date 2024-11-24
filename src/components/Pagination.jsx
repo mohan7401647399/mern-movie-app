@@ -10,7 +10,7 @@ const Pagination = () => {
   }
 
   return (
-    <div className="flex justify-center bg-black p-12 m-auto">
+    <span className="flex justify-center bg-black m-auto pt-20">
       {pages.map((page, index) => {
         return (
           <button
@@ -22,7 +22,7 @@ const Pagination = () => {
           </button>
         );
       })}
-    </div>
+    </span>
   );
 };
 

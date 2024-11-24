@@ -4,15 +4,14 @@ import { userContext } from "./ContextAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../components/Logout";
 import { Button } from "@mui/material";
-import Card from "./Card";
 import Pagination from "./Pagination";
+import MovieLists from "./MovieLists";
 
 const HomePage = () => {
   const {
     handleSearch,
     query,
     setQuery,
-    currentPosts: movies,
     isError,
     postsPerPage,
     setCurrentPage,
@@ -23,7 +22,7 @@ const HomePage = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-    <div>
+    <div className="sm:h-svh">
       {error && <p>Authentication error...</p>}
       {!error && isLoading && <p>Loading....</p>}
       <div className="flex-1 sm:flex sm:place-content-between">
@@ -50,23 +49,8 @@ const HomePage = () => {
           </>
         )}
       </div>
-
       {isError && <p>{isError}</p>}
-
-      <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row bg-black">
-        {movies.map((movie) => (
-          <Card>
-            <div key={movie.imdbID}>
-              <Link to={`/movie/${movie.imdbID}`}>
-                <img src={movie.Poster} alt={movie.Title} className="size-56" />
-                <h3>
-                  {movie.Title} ({movie.Year})
-                </h3>
-              </Link>
-            </div>
-          </Card>
-        ))}
-      </div>
+      <MovieLists />
       <Pagination
         totalPosts={totalPosts}
         postsPerPage={postsPerPage}

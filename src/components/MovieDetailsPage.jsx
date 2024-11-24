@@ -40,7 +40,7 @@ const MovieDetailsPage = () => {
   };
 
   return (
-    <>
+    <div className="h-svh">
       {error && <p>{error}</p>}
       {movie && (
         <Card>
@@ -66,7 +66,7 @@ const MovieDetailsPage = () => {
           </Button>
         </Card>
       )}
-    </>
+    </div>
   );
 };
 

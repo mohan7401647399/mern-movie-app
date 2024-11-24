@@ -15,7 +15,7 @@ const FavoritesPage = () => {
   };
 
   return (
-    <>
+    <div className="h-screen">
       <h2 className="font-bold">Your Favorite Movies</h2>
       <div className="place-content-center md:flex md:flex-wrap lg:flex grid grid-flow-row">
         {favorites.length === 0 ? (
@@ -51,7 +51,7 @@ const FavoritesPage = () => {
           ))
         )}
       </div>
-    </>
+    </div>
   );
 };
 

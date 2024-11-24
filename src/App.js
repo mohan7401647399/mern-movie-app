@@ -11,7 +11,7 @@ const App = () => {
   const { isAuthenticated } = useAuth0();
 
   return (
-    <div className="p-3 m-auto text-center bg-black text-white h-svh">
+    <div className="p-3 m-auto text-center bg-black text-white">
       <h1 className='font-bold text-3xl p-2 font-serif text-purple-600'>
         <Link to="/">React Movies</Link>
       </h1>
