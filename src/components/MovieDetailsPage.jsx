@@ -13,7 +13,7 @@ const MovieDetailsPage = () => {
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
-  //  movie retrieving
+  //  Movie retrieving
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -30,7 +30,7 @@ const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [id]);
 
-  //  movies added to favourites
+  //  Movies added in favourites
   const handleAddToFavorites = () => {
     if (!movie) return;
     const updatedFavorites = [...favorites, movie];
@@ -41,33 +41,31 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <span>
-        {error && <p>{error}</p>}
-        {movie && (
-          <Card>
-            <img className="size-56" src={movie.Poster} alt={movie.Title} />
-            <h2>
-              <strong>Movie Name</strong> : {movie.Title}
-            </h2>
-            <h2>
-              <strong>Year Of Release</strong> : {movie.Released}
-            </h2>
-            <p>
-              <strong>Genre:</strong> {movie.Genre}
-            </p>
-            <p className="mb-5">
-              <strong>Director:</strong> {movie.Director}
-            </p>
-            <Button
-              size="small"
-              onClick={handleAddToFavorites}
-              variant="contained"
-            >
-              {buttonText}
-            </Button>
-          </Card>
-        )}
-      </span>
+      {error && <p>{error}</p>}
+      {movie && (
+        <Card>
+          <img className="size-56" src={movie.Poster} alt={movie.Title} />
+          <h2>
+            <strong>Movie Name</strong> : {movie.Title}
+          </h2>
+          <h2>
+            <strong>Year Of Release</strong> : {movie.Released}
+          </h2>
+          <p>
+            <strong>Genre:</strong> {movie.Genre}
+          </p>
+          <p className="mb-5">
+            <strong>Director:</strong> {movie.Director}
+          </p>
+          <Button
+            size="small"
+            onClick={handleAddToFavorites}
+            variant="contained"
+          >
+            {buttonText}
+          </Button>
+        </Card>
+      )}
     </>
   );
 };

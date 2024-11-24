@@ -10,7 +10,6 @@ export default function UserContextProvider({ children }) {
   const [isError, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(4);
-  console.log(setPostsPerPage);
 
   const handleSearch = async () => {
     if (!query) return;
@@ -20,10 +19,13 @@ export default function UserContextProvider({ children }) {
       );
       setMovies(response.data.Search || []);
       setError("");
-    } catch (err) {
+    } catch (error) {
+      console.log(error);
       setError("Failed to fetch movies");
     }
   };
+
+  //  pagination component function
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = movies.slice(firstPostIndex, lastPostIndex);
@@ -43,6 +45,7 @@ export default function UserContextProvider({ children }) {
         setCurrentPage,
         currentPage,
         totalPosts,
+        setPostsPerPage,
       }}
     >
       {children}
