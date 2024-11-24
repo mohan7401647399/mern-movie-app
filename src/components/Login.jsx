@@ -7,11 +7,12 @@ const LoginButton = () => {
 
   return (
     !isAuthenticated && (
-      <div className=" bg-no-repeat bg-center bg-cover bg-[url('/src/Assets/bg.jpg')] h-screen p-10">
+      <div className=" bg-no-repeat bg-center bg-cover bg-[url('/src/Assets/bg.jpg')] min-h-svh p-10">
         <Button
           size="small"
           onClick={() => loginWithRedirect()}
           variant="contained"
+          color="success"
         >
           Sign In
         </Button>

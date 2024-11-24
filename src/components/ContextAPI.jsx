@@ -30,22 +30,22 @@ export default function UserContextProvider({ children }) {
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
-  useEffect(() => {
-    const fetchMovieDetails = async () => {
-      try {
-        const response = await axios.get(
-          `http://www.omdbapi.com/?i=${id}&apikey=f27268be`
-        );
-        setMovie(response.data);
-        setError("");
-      } catch (err) {
-        setError("Failed to fetch movie details");
-      }
-    };
+  // useEffect(() => {
+  const fetchMovieDetails = async () => {
+    try {
+      const response = await axios.get(
+        `http://www.omdbapi.com/?i=${id}&apikey=f27268be`
+      );
+      setMovie(response.data);
+      setError("");
+    } catch (err) {
+      setError("Failed to fetch movie details");
+    }
+  };
 
-    fetchMovieDetails();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  fetchMovieDetails();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [id]);
 
   //  favourite component functions
   const handleAddToFavorites = () => {
@@ -78,6 +78,7 @@ export default function UserContextProvider({ children }) {
         handleRemoveFromFavorites,
         favorites,
         setFavorites,
+        fetchMovieDetails,
       }}
     >
       {children}

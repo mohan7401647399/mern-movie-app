@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+import Card from "./Card";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const MovieDetailsPage = () => {
     JSON.parse(localStorage.getItem("favorites")) || []
   );
 
+  //  movie retrieving
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
@@ -28,6 +30,7 @@ const MovieDetailsPage = () => {
     fetchMovieDetails();
   }, [id]);
 
+  //  movies added to favourites
   const handleAddToFavorites = () => {
     if (!movie) return;
     const updatedFavorites = [...favorites, movie];
@@ -38,34 +41,36 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      {error && <p>{error}</p>}
-      {movie && (
-        <div className="p-1 m-1">
-          <img src={movie.Poster} alt={movie.Title} />
-          <h2>
-            <strong>Movie Name</strong> : {movie.Title}
-          </h2>
-          <h2>
-            <strong>Year Of Release</strong> : {movie.Released}
-          </h2>
-          <p>
-            <strong>Story</strong>: {movie.Plot}
-          </p>
-          <p>
-            <strong>Genre:</strong> {movie.Genre}
-          </p>
-          <p>
-            <strong>Director:</strong> {movie.Director}
-          </p>
-          <Button
-            size="small"
-            onClick={handleAddToFavorites}
-            variant="contained"
-          >
-            {buttonText}
-          </Button>
-        </div>
-      )}
+      <span>
+        {error && <p>{error}</p>}
+        {movie && (
+          <Card>
+            <img src={movie.Poster} alt={movie.Title} />
+            <h2>
+              <strong>Movie Name</strong> : {movie.Title}
+            </h2>
+            <h2>
+              <strong>Year Of Release</strong> : {movie.Released}
+            </h2>
+            <p>
+              <strong>Story</strong>: {movie.Plot}
+            </p>
+            <p>
+              <strong>Genre:</strong> {movie.Genre}
+            </p>
+            <p className="mb-5">
+              <strong>Director:</strong> {movie.Director}
+            </p>
+            <Button
+              size="small"
+              onClick={handleAddToFavorites}
+              variant="contained"
+            >
+              {buttonText}
+            </Button>
+          </Card>
+        )}
+      </span>
     </>
   );
 };

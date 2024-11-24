@@ -4,6 +4,7 @@ import { userContext } from "./ContextAPI";
 import { useAuth0 } from "@auth0/auth0-react";
 import LogoutButton from "../components/Logout";
 import { Button } from "@mui/material";
+import Card from "./Card";
 
 const HomePage = () => {
   const { handleSearch, query, setQuery, movies, isError } =
@@ -15,15 +16,15 @@ const HomePage = () => {
     <>
       {error && <p>Authentication error...</p>}
       {!error && isLoading && <p>Loading....</p>}
-      <div className="sm:flex sm:place-content-between">
+      <div className="flex-1 sm:flex sm:place-content-between">
         <Link to={"/favorites"}>
           <Button variant="contained" color="success" size="small">
             Favourite Movies
           </Button>
         </Link>
-        <span className="flex">
+        <span className="flex justify-center sm:p-1 p-5">
           <input
-            className="border border-gray-900 rounded-md mr-1 text-black w-96 "
+            className="border border-gray-900 rounded-md mr-1 text-black w-fit sm:w-96"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -42,16 +43,18 @@ const HomePage = () => {
 
       {isError && <p>{isError}</p>}
 
-      <div className="flex p-auto m-auto h-screen">
+      <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row h-max">
         {movies.map((movie) => (
-          <div key={movie.imdbID} className="p-1 m-1">
-            <Link to={`/movie/${movie.imdbID}`}>
-              <img src={movie.Poster} alt={movie.Title} />
-              <h3>
-                {movie.Title} ({movie.Year})
-              </h3>
-            </Link>
-          </div>
+          <Card>
+            <div key={movie.imdbID}>
+              <Link to={`/movie/${movie.imdbID}`}>
+                <img src={movie.Poster} alt={movie.Title} />
+                <h3>
+                  {movie.Title} ({movie.Year})
+                </h3>
+              </Link>
+            </div>
+          </Card>
         ))}
       </div>
     </>
