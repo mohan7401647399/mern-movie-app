@@ -48,7 +48,7 @@ const HomePage = () => {
           <Card>
             <div key={movie.imdbID}>
               <Link to={`/movie/${movie.imdbID}`}>
-                <img src={movie.Poster} alt={movie.Title} />
+                <img src={movie.Poster} alt={movie.Title} className="size-56" />
                 <h3>
                   {movie.Title} ({movie.Year})
                 </h3>

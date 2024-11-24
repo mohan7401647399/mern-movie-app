@@ -45,7 +45,7 @@ const MovieDetailsPage = () => {
         {error && <p>{error}</p>}
         {movie && (
           <Card>
-            <img src={movie.Poster} alt={movie.Title} />
+            <img className="size-56" src={movie.Poster} alt={movie.Title} />
             <h2>
               <strong>Movie Name</strong> : {movie.Title}
             </h2>

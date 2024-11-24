@@ -31,7 +31,7 @@ const FavoritesPage = () => {
               <span key={movie.imdbID} className="p-1 m-1">
                 <Link to={`/movie/${movie.imdbID}`}>
                   <img
-                    className="size-fit"
+                    className="size-56"
                     src={movie.Poster}
                     alt={movie.Title}
                   />

@@ -1,6 +1,5 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { createContext, useState } from "react";
 
 export const userContext = createContext(null);
 
@@ -23,45 +22,6 @@ export default function UserContextProvider({ children }) {
     }
   };
 
-  //    MovieDetailsPage component functions
-  const { id } = useParams();
-  const [movie, setMovie] = useState(null);
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || []
-  );
-
-  // useEffect(() => {
-  const fetchMovieDetails = async () => {
-    try {
-      const response = await axios.get(
-        `http://www.omdbapi.com/?i=${id}&apikey=f27268be`
-      );
-      setMovie(response.data);
-      setError("");
-    } catch (err) {
-      setError("Failed to fetch movie details");
-    }
-  };
-
-  fetchMovieDetails();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [id]);
-
-  //  favourite component functions
-  const handleAddToFavorites = () => {
-    if (!movie) return;
-
-    const updatedFavorites = [...favorites, movie];
-    setFavorites(updatedFavorites);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
-
-  const handleRemoveFromFavorites = (id) => {
-    const updatedFavorites = favorites.filter((fav) => fav.imdbID !== id);
-    setFavorites(updatedFavorites);
-    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
-  };
-
   return (
     <userContext.Provider
       value={{
@@ -70,15 +30,7 @@ export default function UserContextProvider({ children }) {
         setQuery,
         movies,
         isError,
-        id,
-        movie,
-        setMovie,
         setError,
-        handleAddToFavorites,
-        handleRemoveFromFavorites,
-        favorites,
-        setFavorites,
-        fetchMovieDetails,
       }}
     >
       {children}
