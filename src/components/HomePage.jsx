@@ -23,7 +23,7 @@ const HomePage = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-    <>
+    <div>
       {error && <p>Authentication error...</p>}
       {!error && isLoading && <p>Loading....</p>}
       <div className="flex-1 sm:flex sm:place-content-between">
@@ -73,7 +73,7 @@ const HomePage = () => {
         setCurrentPage={setCurrentPage}
         currentPage={currentPage}
       />
-    </>
+    </div>
   );
 };
 
