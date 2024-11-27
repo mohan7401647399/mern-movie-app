@@ -22,7 +22,7 @@ const HomePage = () => {
   const { isLoading, error } = useAuth0();
 
   return (
-    <div className="sm:h-svh">
+    <div className="sm:h-screen">
       {error && <p>Authentication error...</p>}
       {!error && isLoading && <p>Loading....</p>}
       <div className="flex-1 sm:flex sm:place-content-between">
@@ -33,11 +33,11 @@ const HomePage = () => {
         </Link>
         <span className="flex justify-center sm:p-1 p-5">
           <input
-            className="border border-gray-900 rounded-md mr-1 text-black w-fit sm:w-96"
+            className="border border-gray-900 rounded-md mr-1 text-black w-fit sm:w-96 p-1"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search for movies"
+            placeholder="Search movies"
           />
           <Button variant="contained" onClick={handleSearch} size="small">
             Search

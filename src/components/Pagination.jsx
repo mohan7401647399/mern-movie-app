@@ -10,11 +10,11 @@ const Pagination = () => {
   }
 
   return (
-    <span className="flex justify-center bg-black m-auto pt-20">
+    <span className="flex justify-center bg-black mx-auto pt-20 space-x-7">
       {pages.map((page, index) => {
         return (
           <button
-            className="p-1 m-1 border-2 border-yellow-50 rounded-md hover:p-2 hover:bg-white hover:text-black"
+            className="size-7 border-2 border-yellow-50 rounded-md hover:bg-white hover:text-black"
             key={index}
             onClick={() => setCurrentPage(page)}
           >
