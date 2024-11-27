@@ -25,13 +25,13 @@ const HomePage = () => {
     <div className="sm:h-screen">
       {error && <p>Authentication error...</p>}
       {!error && isLoading && <p>Loading....</p>}
-      <div className="flex-1 sm:flex sm:place-content-between">
+      <div className="flex-1 sm:flex sm:place-content-between gap-5">
         <Link to={"/favorites"}>
           <Button variant="contained" color="success" size="small">
             Favourite Movies
           </Button>
         </Link>
-        <span className="flex justify-center sm:p-1 p-5">
+        <span className="flex justify-center sm:p-1 p-5 gap-5">
           <input
             className="border border-gray-900 rounded-md mr-1 text-black w-fit sm:w-96 p-1"
             type="text"

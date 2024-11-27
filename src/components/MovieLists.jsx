@@ -7,7 +7,7 @@ const MovieLists = () => {
   const { currentPosts: movies } = useContext(userContext);
 
   return (
-    <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row">
+    <div className="md:flex md:flex-wrap lg:flex grid grid-flow-row gap-5">
       {movies.map((movie) => (
         <Card>
           <div key={movie.imdbID}>
