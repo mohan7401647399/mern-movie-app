@@ -29,7 +29,7 @@ export default function UserContextProvider({ children }) {
   // Automatically perform the search when the component mounts or when `query` changes
   useEffect(() => {
     handleSearch();
-  }, [query]);
+  }, []);
 
   //  pagination component function
   const lastPostIndex = currentPage * postsPerPage;
