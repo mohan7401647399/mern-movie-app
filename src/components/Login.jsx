@@ -14,7 +14,7 @@ const LoginButton = () => {
           variant="contained"
           color="success"
         >
-          Sign In
+          {isAuthenticated ? "Sign In" : "Movie DashBoard"}
         </Button>
       </div>
     )

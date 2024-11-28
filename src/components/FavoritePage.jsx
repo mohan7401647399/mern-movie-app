@@ -2,6 +2,8 @@ import { Button } from "@mui/material";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const FavoritesPage = () => {
   const [favorites, setFavorites] = useState(
@@ -12,10 +14,11 @@ const FavoritesPage = () => {
     const updatedFavorites = favorites.filter((fav) => fav.imdbID !== id);
     setFavorites(updatedFavorites);
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    toast.error("Movie removed in favorites lists");
   };
 
   return (
-    <div className="h-screen">
+    <div className="sm:h-screen">
       <h2 className="font-bold">Your Favorite Movies</h2>
       <div className="place-content-center md:flex md:flex-wrap lg:flex grid grid-flow-row">
         {favorites.length === 0 ? (

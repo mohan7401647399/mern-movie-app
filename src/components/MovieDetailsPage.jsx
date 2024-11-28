@@ -3,12 +3,14 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import Card from "./Card";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState("");
-  const [buttonText, setButtonText] = useState("Add to Favourites");
+  const [buttonText, setButtonText] = useState("Add to Favorites");
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
@@ -23,20 +25,21 @@ const MovieDetailsPage = () => {
         setMovie(response.data);
         setError("");
       } catch (err) {
-        setError("Failed to fetch movie details");
+        console.log(err);
+        toast.error("Failed to fetch movie details");
       }
     };
-
     fetchMovieDetails();
   }, [id]);
 
-  //  Movies added in favourites
+  //  Movies added in favorites
   const handleAddToFavorites = () => {
     if (!movie) return;
     const updatedFavorites = [...favorites, movie];
     setFavorites(updatedFavorites);
     setButtonText("Added");
     localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+    toast.success("Movie added to favorite lists");
   };
 
   return (

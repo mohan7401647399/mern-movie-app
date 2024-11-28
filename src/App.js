@@ -2,10 +2,11 @@ import React from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import MovieDetailsPage from './components/MovieDetailsPage';
-import FavoritesPage from './components/FavouritePage';
+import FavoritesPage from './components/FavoritePage';
 import LoginButton from './components/Login';
 import { useAuth0 } from '@auth0/auth0-react';
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const App = () => {
 
   const { isAuthenticated } = useAuth0();
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/favorites" element={<FavoritesPage />} />
         </>
       </Routes>
+      <ToastContainer />
     </div>
   );
 };
