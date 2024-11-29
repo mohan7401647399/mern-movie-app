@@ -14,9 +14,8 @@ const HomePage = () => {
     setQuery,
     isError,
     postsPerPage,
-    setCurrentPage,
-    currentPage,
     totalPosts,
+    paginate,
   } = useContext(userContext);
 
   const { isLoading, error } = useAuth0();
@@ -54,8 +53,7 @@ const HomePage = () => {
       <Pagination
         totalPosts={totalPosts}
         postsPerPage={postsPerPage}
-        setCurrentPage={setCurrentPage}
-        currentPage={currentPage}
+        paginate={paginate}
       />
     </div>
   );

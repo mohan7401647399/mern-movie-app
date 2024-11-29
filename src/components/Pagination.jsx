@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { userContext } from "./ContextAPI";
 
 const Pagination = () => {
-  const { setCurrentPage, totalPosts } = useContext(userContext);
+  const { totalPosts, paginate, postsPerPage } = useContext(userContext);
 
   let pages = [];
-  for (let i = 1; i < totalPosts; i++) {
+  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pages.push(i);
   }
 
@@ -16,7 +16,7 @@ const Pagination = () => {
           <button
             className="size-7 border-2 border-yellow-50 rounded-md hover:bg-white hover:text-black"
             key={index}
-            onClick={() => setCurrentPage(page)}
+            onClick={() => paginate(page)}
           >
             {page}
           </button>

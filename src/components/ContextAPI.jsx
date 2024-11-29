@@ -11,7 +11,7 @@ export default function UserContextProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [isError, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(4);
+  const [postsPerPage, setPostsPerPage] = useState(3);
 
   //  Search movie function
   const handleSearch = async () => {
@@ -57,10 +57,13 @@ export default function UserContextProvider({ children }) {
     fetchMovies();
   }, []);
 
+  //  get current posts
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const currentPosts = movies.slice(firstPostIndex, lastPostIndex);
-  const totalPosts = currentPosts.length;
+  const totalPosts = movies.length;
+  //   change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <userContext.Provider
@@ -77,6 +80,7 @@ export default function UserContextProvider({ children }) {
         currentPage,
         totalPosts,
         setPostsPerPage,
+        paginate,
       }}
     >
       {children}
