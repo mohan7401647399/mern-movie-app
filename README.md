@@ -2,6 +2,9 @@
 
 A secure and responsive login/signup module built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project demonstrates essential user authentication workflows, including secure registration and login, ensuring data privacy and security.
 
+## Live Demo
+
+   - https://react-auth0-movies-app.netlify.app/
 
 # Usage
     Registration:
