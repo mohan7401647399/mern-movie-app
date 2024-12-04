@@ -79,14 +79,12 @@ Follow these steps to set up and run the project locally:
     JWT_SECRET=your_secret_key
 
 5. **Run the application**:
-
-    Start the backend server:
    ```bash
+    Start the backend server:
     cd server
     npm run dev
 
     Start the frontend:
-   ```bash
     cd client
     npm start
 
