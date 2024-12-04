@@ -1,95 +1,70 @@
-# Login and Signup Module (MERN)
 
-A secure and responsive login/signup module built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project demonstrates essential user authentication workflows, including secure registration and login, ensuring data privacy and security.
+# React Movie App
+
+A feature-rich movie application built with React.js, utilizing the OMDB API for movie data. This project allows users to search for movies, view detailed information, and manage their favorite movies efficiently.
 
 ## Live Demo
 
    - https://react-auth0-movies-app.netlify.app/
 
-# Usage
-    Registration:
-       - Navigate to the signup page and create an account by providing valid details.
-    Login:
-       - Use registered credentials to log in securely.
-    Session Management:
-       - User sessions are managed with JWT for enhanced security.
+## Features
 
-# Features
-
-- **User Registration**:
-  - Create new user accounts with encrypted passwords.
-- **User Login**:
-  - Authenticate existing users securely using JWT.
-- **Password Encryption**:
-  - Uses bcrypt for hashing user passwords.
+- **Movie Search**:
+  - Search for movies by title and view results instantly.
+- **Movie Details**:
+  - View detailed information about a selected movie, including title, year, genre, plot, and more.
+- **Favorites Management**:
+  - Add movies to a personal favorites list and manage them easily.
+- **Pagination**:
+  - Navigate through search results with user-friendly pagination.
 - **Error Handling**:
-  - Comprehensive error messages for invalid inputs or authentication failures.
+  - Displays user-friendly messages for API errors or invalid inputs.
 - **Responsive Design**:
-  - Optimized for both desktop and mobile devices.
+  - Fully optimized for desktop, tablet, and mobile devices.
 
-# Technologies Used
+## Technologies Used
 
 ### Frontend
-- **React.js**: Dynamic user interface for seamless interaction.
-- **React Router**: For smooth navigation between login and signup pages.
-- **Axios**: Simplifies HTTP requests to the backend.
-- **CSS/SCSS**: Enhances the look and feel of the application.
+- **React.js**: For building the interactive and dynamic user interface.
+- **React Router**: For seamless navigation between pages.
+- **Axios**: For fetching data from the OMDB API.
+- **CSS/SCSS**: For styling and ensuring responsive design.
 
-# Backend
-- **Node.js**: Backend runtime for handling server-side logic.
-- **Express.js**: Lightweight framework for building APIs.
-- **JWT (JSON Web Tokens)**: Provides secure authentication.
-- **bcrypt**: For encrypting user passwords.
+### API
+- **OMDB API**: Provides access to a rich database of movie information.
 
-# Database
-- **MongoDB**: Stores user details in a secure and scalable NoSQL database.
-- **Mongoose**: ODM for MongoDB for schema definition and validation.
+### State Management
+- **React Hooks**: To manage state efficiently.
+- **Context API or Redux (optional)**: For advanced state management (if implemented).
 
-# Installation
+## Installation
 
 Follow these steps to set up and run the project locally:
 
-## Prerequisites
+### Prerequisites
 - Install [Node.js](https://nodejs.org/)
-- Install [MongoDB](https://www.mongodb.com/try/download/community) locally or use MongoDB Atlas.
 
 ### Steps
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/mohan7401647399/MERN.git
+   git clone https://github.com/mohan7401647399/react-movie-app.git
 
 2. **Navigate to the Login Signup directory**:
    ```bash
-    cd MERN/Login_signup
+    cd react-movie-app
 
 3. **Install dependencies**:
-
-    For the backend:
    ```bash
-    cd server
     npm install
 
-    For the frontend:
+4. **Configure environment variables: Create a .env file in the root directory and add your OMDB API key**:
    ```bash
-    cd client
-    npm install
-
-4. **Configure environment variables: Create a .env file in the server directory with the following**:
-   ```bash
-    PORT=5000
-    MONGO_URI=your_mongodb_connection_string
-    JWT_SECRET=your_secret_key
+    REACT_APP_OMDB_API_KEY=your_api_key
 
 5. **Run the application**:
    ```bash
-    Start the backend server:
-        cd server
-        npm run dev
-
-    Start the frontend:
-        cd client
-        npm start
+    npm start
 
 6. **Access the application: Open your browser and navigate to**:
 
