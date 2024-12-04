@@ -49,11 +49,11 @@ A secure and responsive login/signup module built using the MERN stack (MongoDB,
 
 Follow these steps to set up and run the project locally:
 
-# Prerequisites
+## Prerequisites
 - Install [Node.js](https://nodejs.org/)
 - Install [MongoDB](https://www.mongodb.com/try/download/community) locally or use MongoDB Atlas.
 
-# Steps
+### Steps
 
 1. **Clone the repository**:
    ```bash
