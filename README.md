@@ -89,5 +89,5 @@ Follow these steps to set up and run the project locally:
         npm start
 
 6. **Access the application: Open your browser and navigate to**:
-   ```bash
-    [http](http://localhost:3000)
+
+   - http://localhost:3000
