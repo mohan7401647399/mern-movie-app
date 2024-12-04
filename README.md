@@ -81,13 +81,13 @@ Follow these steps to set up and run the project locally:
 5. **Run the application**:
    ```bash
     Start the backend server:
-    cd server
-    npm run dev
+        cd server
+        npm run dev
 
     Start the frontend:
-    cd client
-    npm start
+        cd client
+        npm start
 
 6. **Access the application: Open your browser and navigate to**:
    ```bash
-    [text](http://localhost:3000)
+    [http](http://localhost:3000)
